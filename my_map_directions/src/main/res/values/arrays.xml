@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="goals">
+        <item>台灣大學</item>
+        <item>中正紀念堂</item>
+        <item>十三行博物館</item>
+        <item>漁人碼頭</item>
+        <item>國父紀念館</item>
+    </string-array>
+</resources>

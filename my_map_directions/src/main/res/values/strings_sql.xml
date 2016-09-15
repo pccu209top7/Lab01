@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tableNameGoal">goal</string>
+
+    <string name="createTableGoal">
+        create table if not exists goal(
+            _id integer primary key autoincrement,
+            goal text not null
+        )
+    </string>
+
+    <string name="findAllGoals">
+        select * from goal
+    </string>
+
+</resources>
