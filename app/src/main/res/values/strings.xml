@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">一般 app 實驗室</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment01">測試 fragment 01</string>
+    <string name="fragment02">測試 fragment 02</string>
+    <string name="action_settings">設定</string>
+
+    <string-array name="fruitNames">
+        <item>香蕉</item>
+        <item>鳳梨</item>
+        <item>蘋果</item>
+        <item>水蜜桃</item>
+        <item>芭樂</item>
+    </string-array>
+
+    <string-array name="fruitNamesDesc">
+        <item>黃色彎彎的</item>
+        <item>摸起來刺刺的</item>
+        <item>紅色的</item>
+        <item>軟軟的很容易爛掉</item>
+        <item>市場賣的貴爆了</item>
+    </string-array>
+
+    <string name="createTableTesterSql">
+        create table if not exists tester(
+            _id integer primary key autoincrement,
+            name text not null,
+            age integer not null,
+            tm real not null
+        )
+    </string>
+
+    <string name="dbName">cursorTester.db</string>
+    <string name="tableName">cursor_tester</string>
+    <string name="ghost">阿鬼</string>
+    <string name="pick_time">選時間</string>
+    <string name="pick_date">選日期</string>
+
+</resources>

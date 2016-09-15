@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!--<TextView-->
+    <!--android:id="@+id/dateLabel"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="日期:"-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge"/>-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/date"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+
+    <!--<DatePicker-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/dateChooser"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/timeLabel"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="時間:"-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge"/>-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/time"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+
+    <!--<TimePicker-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/timeChooser"/>-->
+
+    <!--<CalendarView-->
+        <!--android:id="@+id/calendarChooser"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/useWeight"-->
+        <!--android:layout_weight="7"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/changedDate"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/useWeight"-->
+        <!--android:layout_weight="1"/>-->
+
+</LinearLayout>
