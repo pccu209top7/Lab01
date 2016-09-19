@@ -1,4 +1,4 @@
-package org.ghost.map.dir;
+package org.ghost.study.android;
 
 import android.content.ContentValues;
 import android.content.Context;

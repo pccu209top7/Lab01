@@ -1,12 +1,11 @@
 package org.ghost;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.finance.ghost.FirstFragment.OnFragmentInteractionListener;
-
-public class MyFragmentActivity extends AppCompatActivity implements OnFragmentInteractionListener {
+public class MyFragmentActivity extends AppCompatActivity
+//        implements OnFragmentInteractionListener
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +15,8 @@ public class MyFragmentActivity extends AppCompatActivity implements OnFragmentI
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
+//    @Override
+//    public void onFragmentInteraction(Uri uri) {
+//
+//    }
 }

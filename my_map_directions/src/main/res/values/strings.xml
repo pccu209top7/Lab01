@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Google Map 實驗室</string>
     <string name="title_activity_maps">地圖與路徑最佳化實驗</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>

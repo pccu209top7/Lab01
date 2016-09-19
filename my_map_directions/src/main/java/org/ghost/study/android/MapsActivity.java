@@ -1,4 +1,4 @@
-package org.ghost.map.dir;
+package org.ghost.study.android;
 
 import android.content.Context;
 import android.content.Intent;
@@ -284,6 +284,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //視角移動到起點
         CameraUpdate myPosiCameraUpdate = CameraUpdateFactory.newLatLngZoom(myPosi, 18);
         map.animateCamera(myPosiCameraUpdate);
+
+        Log.d("更新畫面", "===============================");
 
         /*
             組合url 下載路徑資料 分析資料 繪製路線圖

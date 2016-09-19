@@ -1,4 +1,4 @@
-package com.finance.ghost.android;
+package org.ghost.study.android;
 
 import org.junit.Test;
 
