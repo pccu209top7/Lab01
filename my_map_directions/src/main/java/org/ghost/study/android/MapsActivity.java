@@ -20,7 +20,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -55,9 +54,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         請求碼
      */
     //權限
-    private static final int REQUEST_CODE_PERMISSION_LOCATION = 0x0001;
+    private static final int REQUEST_CODE_PERMISSION_LOCATION = 0b0001;
     //Activity
-    public static final int REQUEST_CODE_CHOICE_GOAL = 0x0001;
+    public static final int REQUEST_CODE_CHOICE_GOAL = 0b0001;
     public static final String RESULT_KEY_CHOICE_GOAL = MapsActivity.class.getName() + "_RESULT_KEY_CHOICE_GOAL";
 
     /*
@@ -82,6 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         View
      */
     private Button choiceGoal;
+    private View decorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +89,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 
         findViews();
+
+        decorView = getWindow().getDecorView();
     }
 
     private void findViews() {
@@ -119,7 +121,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 String goal = data.getStringExtra(RESULT_KEY_CHOICE_GOAL);
                 if(goal == null || goal.length() == 0){
-                    View decorView = getWindow().getDecorView();
                     Snackbar.make(decorView, "未選擇目標地點!!", Snackbar.LENGTH_SHORT).show();
                     return;
                 }else{
@@ -205,6 +206,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     private void startOptimizePath(String goal) {
 
+
         /*
             定位目標地點
          */
@@ -227,7 +229,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             goalLng = address.getLongitude();
 
         } else {
-            Toast.makeText(this, "取得目標地失敗", Toast.LENGTH_SHORT).show();
+            Snackbar.make(decorView, "取得目標地失敗", Snackbar.LENGTH_SHORT).show();
             return;
         }
 
@@ -242,26 +244,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //noinspection MissingPermission
         Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if (locationGPS == null) {
-            Toast.makeText(this, "使用GPS未取得位置", Toast.LENGTH_SHORT).show();
+            Snackbar.make(decorView, "使用GPS未取得位置", Snackbar.LENGTH_INDEFINITE).show();
 
             //noinspection MissingPermission
             Location locationNetwork = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             if (locationNetwork == null) {
-                Toast.makeText(this, "使用wifi未取得位置", Toast.LENGTH_SHORT).show();
+                Snackbar.make(decorView, "使用wifi未取得位置", Snackbar.LENGTH_INDEFINITE).show();
 
-                Toast.makeText(this, "兩種方式皆未取得位置,定位結束!!", Toast.LENGTH_SHORT).show();
+                Snackbar.make(decorView, "兩種方式皆未取得位置,定位結束!!", Snackbar.LENGTH_SHORT).show();
                 return;
 
             } else {
                 myLat = locationNetwork.getLatitude();
                 myLng = locationNetwork.getLongitude();
-                Toast.makeText(this, "使用Wifi有取得位置 myLat - " + myLat + " myLng - " + myLng, Toast.LENGTH_SHORT).show();
+                Snackbar.make(decorView, "使用Wifi有取得位置 myLat - " + myLat + " myLng - " + myLng, Snackbar.LENGTH_SHORT).show();
             }
 
         } else {
             myLat = locationGPS.getLatitude();
             myLng = locationGPS.getLongitude();
-            Toast.makeText(this, "使用GPS有取得位置 myLat - " + myLat + " myLng - " + myLng, Toast.LENGTH_SHORT).show();
+            Snackbar.make(decorView, "使用GPS有取得位置 myLat - " + myLat + " myLng - " + myLng, Snackbar.LENGTH_SHORT).show();
         }
 
         /*
@@ -292,8 +294,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //視角移動到起點
         CameraUpdate myPosiCameraUpdate = CameraUpdateFactory.newLatLngZoom(myPosi, 18);
         map.animateCamera(myPosiCameraUpdate);
-
-        Log.d("更新畫面", "===============================");
 
         /*
             組合url 下載路徑資料 分析資料 繪製路線圖
