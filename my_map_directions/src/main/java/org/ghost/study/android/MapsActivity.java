@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -115,8 +116,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CODE_CHOICE_GOAL:
+
                 String goal = data.getStringExtra(RESULT_KEY_CHOICE_GOAL);
-                startOptimizePath(goal);
+                if(goal == null || goal.length() == 0){
+                    View decorView = getWindow().getDecorView();
+                    Snackbar.make(decorView, "未選擇目標地點!!", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    startOptimizePath(goal);
+                }
                 break;
         }
     }

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -51,5 +53,28 @@ public class ChoiceGoalActivity extends AppCompatActivity implements OnItemClick
         setResult(MapsActivity.REQUEST_CODE_CHOICE_GOAL, intent);
 
         finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+
+            //test-
+            //這裡只有down有反應
+            switch (event.getAction()){
+                case KeyEvent.ACTION_DOWN:
+                    Log.d("key action - ", "down");
+                    break;
+                case KeyEvent.ACTION_UP:
+                    Log.d("key action - ", "up");
+                    break;
+                case KeyEvent.ACTION_MULTIPLE:
+                    Log.d("key action - ", "multiple");
+                    break;
+            }
+            return true;
+        }
+        return false;
     }
 }
